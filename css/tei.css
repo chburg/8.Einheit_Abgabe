@@ -1,0 +1,59 @@
+html {
+  font-family: Arial, Helvetica, sans-serif;
+  color: black
+  display: block;
+  width: 500px;
+  margin: auto;
+}
+
+tei-caption, tei-stage, tei-speaker, #SS {
+  display: none;
+}
+
+tei-standOff {
+  display: block;
+  text-align: center;
+  text-decoration: underline;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+tei-incident, tei-vocal {
+  font-weight: bold;
+  display: block;
+  margin: 10px 0;
+  text-align: center;
+  padding: 4px;
+  border-radius: 3px;
+}
+
+tei-incident {
+  background-color: lightgrey;
+  font-style: normal;
+}
+
+tei-vocal {
+  color: lightgrey;
+  background-color: black;
+}
+
+tei-u {
+  display: block;
+  margin-top: 16px;
+  font-style: italic;
+  text-align: center;
+}
+
+tei-sp {
+  display: block;
+  margin: 50px 0;
+  color: grey;
+}
+
+tei-u[who=\#SS]{
+  display: block;
+  color: grey;
+  text-align: center;
+  font-style: normal;
+  margin: 30px 0;
+}

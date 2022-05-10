@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml"
+	schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>The Hill We Climb</title>
+                <author>
+                    <name>
+                        <forename>Amanda</forename>
+                        <surname>Gorman</surname>
+                    </name>
+                </author>
+            </titleStmt>
+            <publicationStmt>
+                <publisher>
+                    <name xml:id="CB" role="editor">
+                        <forename>Christina</forename>
+                        <surname>B</surname>
+                    </name>
+                </publisher>
+                <pubPlace>ZIM: Zentrum für Informationsmodellierung</pubPlace>
+                <date when="2022-02-11">11th February 2022</date>
+            </publicationStmt>
+            <sourceDesc>
+                <recordingStmt>
+                    <recording type="video" dur="P6M">
+                        <equipment>
+                            <p>Downloaded from YouTube</p>
+                        </equipment>
+                        <broadcast>
+                            <bibl>
+                                <title>Inaugural poet Amanda Gorman delivers a poem at Joe Biden's
+                                    inauguration</title>
+                                <respStmt>
+                                    <name>Amanda Gorman</name>
+                                    <resp>poet</resp>
+                                </respStmt>
+                                <publisher>CNBC Television</publisher>
+                                <note>First broadcast on <date when="2021-01-20">20th January
+                                        2021</date></note>
+                            </bibl>
+                        </broadcast>
+                        <p>
+                            <ptr target="https://youtu.be/Jp9pyMqnBzk"/>
+                        </p>
+                    </recording>
+                </recordingStmt>
+            </sourceDesc>
+        </fileDesc>
+    </teiHeader>
+    <standOff>
+        <listPerson>
+            <person xml:id="AG" role="poet" >
+                <persName ref="https://de.wikipedia.org/wiki/Amanda_Gorman">
+                    <forename>Amanda</forename>
+                    <surname>Gorman</surname>
+                </persName>
+            </person>
+            <person>
+                <persName xml:id="AD" role="audience"/>
+            </person>
+            <person>
+                <!-- Not sure if this was necessary.-->
+                <persName xml:id="SS" role="promotion host">
+                    <forename>Shepard</forename>
+                    <surname>Smith</surname>
+                </persName>
+            </person>
+        </listPerson>
+    </standOff>
+    <text>
+        <body>
+            <!-- I arranged the poem into seperate paragraphs oriented at her intonation and pauses, to give it a bit more structure.-->
+            <!-- There was quite a lot to encode regarding pronaunciation, pitch, tempo etc. I wasn't sure if it's okay to cut information, so it might be slightly too much.-->
+            <!-- For the kinesic-tag I chose three different types: mixed, reinforcing and visualising.
+                 If her hand movements were somehow special I additionally described them in the tag. -->
+            <div type="broadcast">
+                <caption>The Inauguration of Joseph R. Biden, Jr.</caption>
+
+                <u who="#AG" toWhom="#AD">
+                    <!-- Amanda is speaking to the Audience.-->
+                    <incident>
+                        <desc>clapping</desc>
+                    </incident>
+                    <!-- Here for example the poet spoke quite slowly, which I encoded as <shift> in tempo with "l" meaning lento/slow.
+                        She also paused after every name to emphasize the people she was addressing, which I simply tagged as <pause/>.
+                        At the end of the paragraph here voice lowers - I marked it as descending pitch.-->
+                    <shift feature="tempo" new="l"/>Mr. President,<pause/> Dr. Biden<pause/> ,
+                    Madame Vice President<pause/>, Mr. Emhoff<pause/>, Americans and <shift
+                        feature="pitch" new="desc"/>the World.</u>
+
+                <!-- That's the caption, which was inserted in the video. It changes later on.-->
+                <caption>Amanda Gorman</caption>
+                <lb/>
+                <caption>Youth Poet Laureate, 2017</caption>
+
+                <!-- The transition to this made-up paragraph is smooth, but her tempo starts to increase.
+                    Also one can see her first hand movements, which I interpreted as iterated, because she repeats it lightly, and reinforced.
+                    She isn't showing anything with her hands, she is just emphasizing her words.  -->
+                <u who="#AG" trans="smooth"><shift feature="tempo" new="acc"/>When day comes we ask
+                    ourselves, <kinesic iterated="true" type="reinforcing"/>‘where can we find light
+                    in this <pause/>never-ending <shift feature="pitch" new="desc"/>shade,’ <shift
+                        feature="rhythm" new="rh"/>
+                    <!-- Here her speech becomes rhythmic for a short time and her gestures are mimicking her words.-->
+                    <kinesic iterated="false" type="visualising"/>the loss we carry, a sea we must
+                    wade? <kinesic iterated="false" type="reinforcing"/>we’ve
+                        <!-- Her pitch gets higher at "braved" and she is also stressing the word more than the others. --><shift
+                        feature="tension" new="pr"/><shift feature="pitch" new="asc"/>braved <shift
+                        feature="pitch" new="desc"/>the belly of the beast.</u>
+
+                <caption>Amanda Gorman</caption>
+                <lb/>
+                <caption>Inaugural Poet</caption>
+                <!-- Her hand-movements seem to be a mix of reinforced and visualized gestures, that's why I chose "mixed" as type. -->
+                <u who="#AG" trans="latching"><kinesic iterated="false" type="mixed"/>We’ve learned
+                    that <shift feature="pitch" new="scand"
+                    /><!-- Her voice starts of high and lowers at the end. I found "scand" to be the most fitting way to describe it. -->quiet
+                    isn’t always peace,and the norms and notions of <kinesic iterated="true"
+                        type="reinforcing">
+                        <desc>air quotes</desc>
+                    </kinesic>what just is<pause/> isn’t always <shift feature="tempo" new="rall"
+                        /><kinesic iterated="false" type="reinforcing"/>just-ice.<pause/></u>
+
+                <u who="#AG" trans="latching">And yet the <shift feature="pitch" new="asc"/>dawn is
+                        <kinesic iterated="false" type="visualising"/> ours <shift feature="rhythm"
+                        new="rh"/><shift feature="pitch" new="desc"/>before we knew it, somehow we
+                    do it. <caption>The Inauguration of Joseph R. Biden, Jr.</caption>
+                    <shift feature="tempo" new="rall"
+                    /><!--She's beginning to speak slower and slower. -->Somehow we’ve <kinesic
+                        iterated="false" type="reinforcing"/>weathered and witnessed a nation that
+                    isn’t broken <pause/>but simply unfinished.</u>
+
+                <u who="#AG" trans="latching">We, the successors of a country and a time where a
+                        <kinesic iterated="false" type="visualising">
+                        <desc>points her thumbs at herself</desc>
+                    </kinesic><shift feature="pitch" new="high"/>skinny Black girl <kinesic
+                        iterated="false" type="visualising">
+                        <desc>raises her right hand and gently swipes down</desc>
+                    </kinesic><shift feature="rhythm" new="spr"
+                    /><!-- She has a lot of up and downs in her intonation and I found it hard to decribe those.
+                        I think a shift in tempo with "rall" would have worked here, too. -->descended
+                    from slaves and <kinesic iterated="false" type="visualising">
+                        <desc>raises her right hand</desc>
+                    </kinesic>raised by a single mother can <kinesic iterated="false"
+                        type="reinforcing">
+                        <desc>moves her open hands away from her head</desc>
+                    </kinesic><shift feature="pitch" new="high"/>dream <shift feature="pitch"
+                        new="desc"/>of becoming president <pause/><shift feature="pitch" new="high"
+                    />only <shift feature="pitch" new="desc"/>to find herself reciting <pause/>for
+                    one.</u>
+
+                <!-- At "far" her voice gets noticeably louder. -->
+                <u who="#AG" trans="smooth">And yes, we are <shift feature="loud" new="f"/>far from
+                    polished, <shift feature="loud" new="f"/>far from pristine, <shift
+                        feature="tempo" new="acc"/>but that doesn’t mean we are striving to form a
+                    union that is <pause/> perfect.</u>
+
+                <u who="#AG" trans="smooth"
+                        ><!-- At "we" her pitch is quite high, repeating that pattern at "forge".--><shift
+                        feature="pitch" new="high"/>We are striving to <shift feature="pitch"
+                        new="high"/>forge a union <shift feature="tension" new="pr"/>with
+                    <pause/>purpose, to compose a country committed to all cultures<pause/>,
+                    colors<pause/>, characters<pause/>, and conditions of <shift feature="pitch"
+                        new="desc"/>man. <kinesic iterated="false" type="mixed"/>And so we lift our
+                    gazes not to what stands between us <pause/> but what stands before us.</u>
+
+                <!-- The poet speaks faster now in comparasion to before. -->
+                <u who="#AG" trans="latching"><shift feature="tempo" new="a"/><kinesic
+                        iterated="false" type="visualising"/>We close the divide because we know, to
+                    put our future first, we must first put our differences aside. <shift
+                        feature="pitch" new="scand"/>We lay down our arms so we can reach out our
+                    arms to one another. We seek harm to none and harmony for all. Let the globe,
+                    <pause/>if nothing else, say <kinesic iterated="false" type="visualising"/>this<pause/>
+                    <shift feature="pitch" new="desc"/>is true:</u>
+
+                <u who="#AG" trans="smooth"><shift feature="rhythm" new="rh"/><shift feature="pitch"
+                        new="scand"/>That even as we grieved, we <!-- She actually rarely translated her words into correct sign-language, but here she did. -->
+                    <kinesic iterated="false" type="visualising">
+                        <desc>signes "grow" in American Sign Language (ASL)</desc>
+                    </kinesic>grew; that even as we hurt, we <kinesic iterated="false"
+                        type="visualising"/>hoped; that even as we tired, we tried; that we’ll
+                    forever be tied together, <shift feature="loud" new="f"/>victorious, <shift
+                        feature="tempo" new="desc"/>not because we will never again know
+                        defeat<shift feature="loud" new="dimin"/> but because we will never again
+                    <!-- Her voice gets softer, fitting to her words. --> sow division.</u>
+
+                <u who="#AG" trans="latching">Scripture tells us to <kinesic iterated="false"
+                        type="visualising"/>envision that everyone <kinesic iterated="false"
+                        type="reinforcing"/>shall sit under their own <shift feature="tempo"
+                        new="rall"/><shift feature="pitch" new="desc"/>vine and fig tree and no one
+                    shall make them afraid. If we’re to live up to our own time <shift
+                        feature="rhythm" new="spf"/>then victory won’t lie in the blade but in all
+                    <!--It rhyhmes a little, but with more spiking words. I wasn't too sure about using rhythm-tags correctly.  -->
+                    the <kinesic iterated="false" type="visualising"/>bridges we’ve made. <shift
+                        feature="loud" new="f"/>That is the promise to glade, the <shift
+                        feature="tempo" new="a"/><kinesic iterated="false" type="visualising"/>hill
+                    we climb if only we dare it, because <shift feature="tension" new="leg"
+                        /><!-- Her words seem to be stressed quite equally; monotonous.--><shift
+                        feature="rhythm" new="rh"/>
+                    <kinesic iterated="false" type="reinforcing"/>being American is more than a
+                    pride we inherit — it’s the past we step into and how we repair it.</u>
+
+                <u who="#AG" trans="latching">We’ve seen a force that would <kinesic
+                        iterated="false" type="reinforcing"/>shatter our nation rather than share it
+                    would destroy our country if it meant delaying democracy. <shift feature="pitch"
+                        new="scand"/>And this effort very nearly succeeded. But while democracy can
+                    be
+                        <!-- Her pronaunciation is really precise in the following sentence. --><shift
+                        feature="tension" new="pr"/>periodically delayed, it can <shift
+                        feature="tension" new="pr"/>never <shift feature="pitch" new="desc"/>be
+                    permanently defeated. </u>
+
+                <u who="#AG" trans="latching">
+                    <kinesic iterated="false" type="reinforcing"/>In this truth, in this faith we
+                    trust, <shift feature="tempo" new="acc"/> for while we have our eyes on the
+                    future, history<shift feature="pitch" new="desc"/> has its eyes on us. This is
+                    the era of just redemption we feared at <shift feature="tension" new="sl"/>its
+                    <!-- She made a mistake here and her speech was slurred. --> inception. We did
+                    not feel prepared to be the heirs of such a terrifying <shift feature="tension"
+                        new="leg"/><!-- She is stretching the words "hour", "power" etc., so I marked a shift in tension. -->hour but
+                        <kinesic iterated="false" type="reinforcing"/>within it we found the <shift
+                        feature="tension" new="leg"/>power to author a new <shift feature="tension"
+                        new="leg"/>chapter, to offer hope and laughter to ourselves. </u>
+
+                <u who="#AG" trans="latching"><shift feature="tempo" new="l"/>So while once we
+                    asked, ‘how could we <shift feature="tension" new="pr"/><kinesic
+                        iterated="false" type="reinforcing"/>possibly prevail over catastrophe,’
+                        <shift feature="tension" new="pr"/>now we assert, ‘how could catastrophe
+                    possibly prevail over us?’ We will not march back to what was but <shift
+                        feature="tension" new="st"/><kinesic iterated="false" type="reinforcing"
+                    />move to what shall <shift feature="tension" new="st"
+                    /><!-- There is more accentuation on "be","bruised", "benevolent", "fierce" and "free" so I encoded their tension as staccato. -->be:
+                        <shift feature="rhythm" new="rh"/>a country that is <shift feature="tension"
+                        new="st"/>bruised but <shift feature="tension" new="st"/>whole, <shift
+                        feature="tension" new="st"/>benevolent but bold, <shift feature="tension"
+                        new="st"/>fierce, and <shift feature="tension" new="st"/>free.</u>
+
+                <u who="#AG" trans="smooth">
+                    <shift feature="tempo" new="acc"/>
+                    <shift feature="tension" new="ten"/>We will not be <kinesic iterated="false"
+                        type="visualising"/>turned around or interrupted by intimidation because we
+                    know our <shift feature="tension" new="st"/>inaction and <shift
+                        feature="tension" new="st"/>inertia will be the inheritance of the next
+                    generation. <shift feature="pitch" new="asc"/>Our blunders become their <shift
+                        feature="tension" new="st"/>burdens. <kinesic iterated="false"
+                        type="visualising"/>But one thing is <shift feature="tension" new="st"
+                    />certain:</u>
+
+                <u who="#AG" trans="pause"><shift feature="tension" new="pr"/>If we merge mercy with <!--Here the transistion from one paragraph to another was indicated through a pause.-->
+                    <shift feature="tension" new="st"/>might, and might with <shift
+                        feature="tension" new="st"/>right, then <shift feature="pitch" new="desc"
+                    />love becomes our legacy and change our children’s birthright.</u>
+
+                <!-- as discussed before in the poster presentation I additionally encoded the following section as "passages of verse"-->
+                <sp who="#AG">
+                    <speaker>Amanda Gorman</speaker>
+                    <stage type="location">At the west front of the United States Capitol facing the
+                        National Mall</stage>
+                    <stage type="setting">Amanda Gorman on podium at lectern</stage>
+                    <stage type="delivery">to audience</stage>
+                    <shift feature="tempo" new="acc"/>
+                    <!-- Her voice is getting louder. -->
+                    <shift feature="loud" new="cresc"/>
+                    <!-- More information on the character/poet -->
+                    <stage type="modifier">Youth Poet Laureate, 2017 and Inaugural Poet 2021</stage>
+                    <l>So let us leave behind a country </l>
+                    <l>better than the one we were left with. </l>
+                    <l>Every breath from my bronze-pounded chest, </l>
+                    <l>we will raise this wounded world into a wondrous one. </l>
+                    <l>We will rise from the gold-limned hills of the west, </l>
+                    <l>we will rise from the windswept northeast </l>
+                    <l>where our forefathers first realized revolution, </l>
+                    <l>we will rise from the lake-rimmed cities of the midwestern states, </l>
+                    <l>we will rise from the sunbaked south.<shift feature="tempo" new="desc"/></l>
+                    <l>We will rebuild, reconcile, and recover </l>
+                    <!-- Again, her word-pronounciation starts to get very precise. -->
+                    <shift feature="tension" new="pr"/>
+                    <l>in every known nook of our nation and </l>
+                    <l>every corner called our country, </l>
+                    <l>our people diverse and beautiful will emerge, </l>
+                    <l>battered and beautiful. </l>
+                    <l>When day comes we <kinesic iterated="false" type="reinforcing"/>step<shift
+                            feature="tension" new="st"/> out of the shade, </l>
+                    <l>aflame and unafraid. </l>
+                    <shift feature="rhythm" new="rh"/>
+                    <!-- The poem starts to be rhythmic again. -->
+                    <l>The new dawn <kinesic iterated="false" type="visualising"/>blooms as we free
+                        it. </l>
+                    <shift feature="pitch" new="scand"/>
+                    <l>For there is <shift feature="tension" new="st"/>always light, </l>
+                    <l>if only we’re <kinesic iterated="false" type="reinforcing"/>brave enough to
+                        see it, </l>
+                    <shift feature="tempo" new="desc"/>
+                    <l>if <shift feature="tension" new="st"/>only we’re brave enough to be it.</l>
+                    <kinesic iterated="false">
+                        <desc>bows her head, shuts her folder, waves with right hand and leaves the
+                            stage</desc>
+                    </kinesic>
+                    <stage type="exit"/>
+                </sp>
+
+                <vocal>
+                    <desc>someone cheers</desc>
+                </vocal>
+                <incident>
+                    <desc>clapping</desc>
+                </incident>
+                <!-- I wasn't sure if I should cut the outro, so I put it in.-->
+                <u who="#SS">Shepard Smith, here. Thanks for watching CNBC, on YouTube.</u>
+            </div>
+        </body>
+    </text>
+</TEI>
